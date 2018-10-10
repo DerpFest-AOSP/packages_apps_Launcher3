@@ -86,4 +86,9 @@
     <!-- Quickspace Now Playing -->
     <string name="quickspace_now_playing_title">Show now playing</string>
     <string name="quickspace_now_playing_summary">Shows the song you\'re playing on At a Glance.</string>
+
+    <!-- Hide labels -->
+    <string name="show_labels_title">Show app title</string>
+    <string name="desktop_show_labels_summary">Display the app label on the homescreen</string>
+    <string name="drawer_show_labels_summary">Display the app label in the app drawer</string>
 </resources>

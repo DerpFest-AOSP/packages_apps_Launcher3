@@ -53,6 +53,13 @@
             android:persistent="true" />
 
         <SwitchPreference
+            android:key="pref_desktop_show_labels"
+            android:title="@string/show_labels_title"
+            android:summary="@string/desktop_show_labels_summary"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
             android:defaultValue="true"
             android:key="pref_enable_minus_one"
             android:summary="@string/pref_show_google_now_summary"
@@ -86,6 +93,13 @@
         android:icon="@drawable/ic_settings_appdrawer"
         android:title="@string/app_drawer_category_title"
         android:summary="@string/app_drawer_category_summary">
+
+    <SwitchPreference
+        android:key="pref_drawer_show_labels"
+        android:title="@string/show_labels_title"
+        android:summary="@string/drawer_show_labels_summary"
+        android:defaultValue="true"
+        android:persistent="true" />
 
     <androidx.preference.PreferenceScreen
         android:persistent="false"
