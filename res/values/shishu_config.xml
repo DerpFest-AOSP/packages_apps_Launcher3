@@ -15,4 +15,7 @@
     <!-- String representing the fragment class for about activity.-->
     <string name="about_fragment_name" translatable="false">com.android.launcher3.settings.SettingsAbout$AboutFragment</string>
 
+    <!-- Quickspace -->
+    <item type="id" name="reserved_container_workspace" />
+
 </resources>
