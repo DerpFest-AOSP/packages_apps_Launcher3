@@ -61,6 +61,10 @@
         android:title="@string/home_category_title"
         android:summary="@string/home_category_summary">
 
+        <Preference
+            android:key="pref_trust_apps"
+            android:title="@string/trust_apps_manager_name" />
+
         <SwitchPreference
             android:key="pref_add_icon_to_home"
             android:title="@string/auto_add_shortcuts_label"
