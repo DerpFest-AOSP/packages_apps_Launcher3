@@ -121,11 +121,14 @@ public class SettingsActivity extends Activity
     }
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-        if (Utilities.DESKTOP_SHOW_QUICKSPACE.equals(key)) {
-            LauncherAppState.getInstanceNoCreate().setNeedsRestart();
-        }
-        if (Utilities.ICON_SIZE.equals(key)) {
+        switch (key) {
+            case Utilities.DESKTOP_SHOW_QUICKSPACE:
+            case Utilities.KEY_SHOW_ALT_QUICKSPACE:
+            case Utilities.ICON_SIZE:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                break;
+            default:
+                break;
         }
     }
 

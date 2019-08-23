@@ -143,6 +143,7 @@ public final class Utilities {
     public static final String KEY_OVERVIEW_BLUR = "pref_overview_scrim_blur";
     public static final String KEY_ALLOW_WALLPAPER_ZOOM = "pref_allow_wallpaper_zoom";
     public static final String DESKTOP_SHOW_QUICKSPACE = "pref_show_quickspace";
+    public static final String KEY_SHOW_ALT_QUICKSPACE = "pref_show_alt_quickspace";
     public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
     public static final String ICON_SIZE = "pref_icon_size";
 
@@ -789,6 +790,10 @@ public final class Utilities {
     public static boolean showQuickspace(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getBoolean(DESKTOP_SHOW_QUICKSPACE, true);
+    }
+
+    public static boolean useAlternativeQuickspaceUI(Context context) {
+        return getPrefs(context).getBoolean(KEY_SHOW_ALT_QUICKSPACE, false);
     }
 
     public static boolean showDateInPlaceOfNowPlaying(Context context) {
