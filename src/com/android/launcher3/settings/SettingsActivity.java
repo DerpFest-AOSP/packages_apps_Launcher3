@@ -40,6 +40,7 @@ import androidx.preference.PreferenceFragment.OnPreferenceStartFragmentCallback;
 import androidx.preference.PreferenceFragment.OnPreferenceStartScreenCallback;
 import androidx.preference.PreferenceGroup.PreferencePositionCallback;
 import androidx.preference.PreferenceScreen;
+import androidx.preference.SwitchPreference;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.internal.util.bootleggers.BootlegUtils;
@@ -253,6 +254,17 @@ public class SettingsActivity extends Activity
                 case KEY_ENABLE_MINUS_ONE:
                     mShowGoogleAppPref = preference;
                     updateIsGoogleAppEnabled();
+                    return true;
+
+                case Utilities.KEY_SHOW_QUICKSPACE_NOWPLAYING:
+                    SwitchPreference quickspaceNowPlaying =
+                        (SwitchPreference) findPreference(Utilities.KEY_SHOW_QUICKSPACE_NOWPLAYING);
+                    quickspaceNowPlaying.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                            return true;
+                        }
+                    });
                     return true;
             }
             return true;
