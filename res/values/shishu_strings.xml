@@ -106,4 +106,7 @@
 
     <!-- Preference default value -->
     <string name="pref_value_default" translatable="false">Default</string>
+
+    <!-- Folder titles -->
+    <string name="google_folder_title" translatable="false">Google</string>
 </resources>
