@@ -249,6 +249,9 @@ public class SettingsActivity extends Activity
                 mNotificationDotsObserver.unregister();
                 mNotificationDotsObserver = null;
             }
+            // if we don't press the home button but the back button to close Settings,
+            // then we must force a restart because the home button watcher wouldn't trigger it
+            LauncherAppState.getInstanceNoCreate().checkIfRestartNeeded();
             super.onDestroy();
         }
     }
