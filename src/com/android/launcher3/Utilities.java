@@ -146,6 +146,8 @@ public final class Utilities {
     public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
     public static final String ICON_SIZE = "pref_icon_size";
 
+    public static final String SLEEP_GESTURE = "pref_sleep_gesture";
+
     /**
      * Set on a motion event dispatched from the nav bar. See {@link MotionEvent#setEdgeFlags(int)}.
      */
@@ -737,6 +739,10 @@ public final class Utilities {
             return DateUtils.formatDateTime(context, timeInMillis, DateUtils.FORMAT_SHOW_WEEKDAY | DateUtils.FORMAT_SHOW_DATE | DateUtils.FORMAT_ABBREV_MONTH);
         }
 
+    }
+
+    public static boolean useSleepGesture(Context context) {
+        return getPrefs(context).getBoolean(SLEEP_GESTURE, true);
     }
 
     public static void restart(final Context context) {
