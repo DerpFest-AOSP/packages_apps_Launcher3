@@ -109,4 +109,12 @@
 
     <!-- Folder titles -->
     <string name="google_folder_title" translatable="false">Google</string>
+
+    <!-- Icon size -->
+    <string name="icon_size_title">Icon size</string>
+    <string name="icon_size_extra_small">Tiny</string>
+    <string name="icon_size_small">Small</string>
+    <string name="icon_size_average">Default</string>
+    <string name="icon_size_large">Large</string>
+    <string name="icon_size_extra_large">Extra large</string>
 </resources>

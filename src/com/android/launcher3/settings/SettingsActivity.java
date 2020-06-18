@@ -119,6 +119,9 @@ public class SettingsActivity extends Activity
         if (Utilities.DESKTOP_SHOW_QUICKSPACE.equals(key)) {
             LauncherAppState.getInstanceNoCreate().setNeedsRestart();
         }
+        if (Utilities.ICON_SIZE.equals(key)) {
+                LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+        }
     }
 
     public interface OnResumePreferenceCallback {
