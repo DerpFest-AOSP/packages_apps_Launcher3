@@ -28,6 +28,7 @@ import android.content.Context;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.TextUtils;
@@ -60,6 +61,8 @@ import androidx.preference.PreferenceGroup.PreferencePositionCallback;
 import androidx.preference.PreferenceScreen;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static com.android.launcher3.OverlayCallbackImpl.KEY_ENABLE_MINUS_ONE;
+
 /**
  * Settings activity for Launcher.
  */
@@ -75,6 +78,7 @@ public class SettingsActivity extends Activity
     private static final String NOTIFICATION_ENABLED_LISTENERS = "enabled_notification_listeners";
     private static final String SUGGESTIONS_KEY = "pref_suggestions";
     protected static final String DPS_PACKAGE = "com.google.android.as";
+    protected static final String GSA_PACKAGE = "com.google.android.googlequicksearchbox";
 
     public static final String EXTRA_FRAGMENT_ARG_KEY = ":settings:fragment_args_key";
     public static final String EXTRA_SHOW_FRAGMENT_ARGS = ":settings:show_fragment_args";
@@ -145,6 +149,8 @@ public class SettingsActivity extends Activity
 
         private String mHighLightKey;
         private boolean mPreferenceHighlighted = false;
+
+        private Preference mShowGoogleAppPref;
 
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -239,6 +245,11 @@ public class SettingsActivity extends Activity
                 case Utilities.KEY_ALLOW_OVERVIEW_BLUR:
                 case Utilities.KEY_OVERVIEW_BLUR:
                     return BootlegUtils.supportsBlur();
+
+                case KEY_ENABLE_MINUS_ONE:
+                    mShowGoogleAppPref = preference;
+                    updateIsGoogleAppEnabled();
+                    return true;
             }
             return true;
         }
@@ -261,6 +272,20 @@ public class SettingsActivity extends Activity
                 return context.getPackageManager().getApplicationInfo(DPS_PACKAGE, 0).enabled;
             } catch (PackageManager.NameNotFoundException e) {
                 return false;
+            }
+        }
+
+        public static boolean isGSAEnabled(Context context) {
+            try {
+                return context.getPackageManager().getApplicationInfo(GSA_PACKAGE, 0).enabled;
+            } catch (PackageManager.NameNotFoundException e) {
+                return false;
+            }
+        }
+
+        private void updateIsGoogleAppEnabled() {
+            if (mShowGoogleAppPref != null) {
+                mShowGoogleAppPref.setEnabled(isGSAEnabled(getContext()));
             }
         }
 
