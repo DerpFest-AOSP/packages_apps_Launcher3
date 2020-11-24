@@ -31,6 +31,7 @@ import android.provider.Settings;
 import android.text.TextUtils;
 
 import androidx.preference.Preference;
+import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceFragment.OnPreferenceStartFragmentCallback;
 import androidx.preference.PreferenceFragment.OnPreferenceStartScreenCallback;
@@ -43,6 +44,7 @@ import com.android.launcher3.LauncherFiles;
 import com.android.launcher3.R;
 import com.android.launcher3.Utilities;
 import com.android.launcher3.config.FeatureFlags;
+import com.android.launcher3.settings.preferences.CustomSeekBarPreference;
 import com.android.launcher3.uioverrides.plugins.PluginManagerWrapper;
 import com.android.launcher3.util.SecureSettingsObserver;
 
@@ -210,6 +212,17 @@ public class SettingsActivity extends Activity
                 case FLAGS_PREFERENCE_KEY:
                     // Only show flag toggler UI if this build variant implements that.
                     return FeatureFlags.showFlagTogglerUi(getContext());
+
+                case Utilities.KEY_ALL_APPS_BACKGROUND_ALPHA:
+                    CustomSeekBarPreference allAppsAlpha = 
+                            (CustomSeekBarPreference) findPreference(Utilities.KEY_ALL_APPS_BACKGROUND_ALPHA);
+                    allAppsAlpha.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
+                        public boolean onPreferenceChange(Preference preference, Object newValue) {
+                            LauncherAppState.getInstanceNoCreate().setNeedsRestart();
+                            return true;
+                        }
+                    });
+                    return true;
             }
             return true;
         }
