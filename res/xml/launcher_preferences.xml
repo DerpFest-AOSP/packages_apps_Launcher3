@@ -17,37 +17,69 @@
 <androidx.preference.PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.android.launcher3.settings.NotificationDotsPreference
-        android:key="pref_icon_badging"
-        android:title="@string/notification_dots_title"
-        android:persistent="false"
-        android:widgetLayout="@layout/notification_pref_warning" >
-        <intent android:action="android.settings.NOTIFICATION_SETTINGS">
-            <!-- This extra highlights the "Allow notification dots" field in Notification settings -->
-            <extra
-                android:name=":settings:fragment_args_key"
-                android:value="notification_badging" />
-        </intent>
-    </com.android.launcher3.settings.NotificationDotsPreference>
+    <PreferenceScreen
+        android:key="icons"
+        android:icon="@drawable/ic_settings_icons"
+        android:title="@string/icons_category_title"
+        android:summary="@string/icons_category_summary">
 
-    <SwitchPreference
-        android:key="pref_add_icon_to_home"
-        android:title="@string/auto_add_shortcuts_label"
-        android:summary="@string/auto_add_shortcuts_description"
-        android:defaultValue="true"
-        android:persistent="true" />
+        <com.android.launcher3.settings.NotificationDotsPreference
+            android:key="pref_icon_badging"
+            android:title="@string/notification_dots_title"
+            android:persistent="false"
+            android:widgetLayout="@layout/notification_pref_warning" >
+            <intent android:action="android.settings.NOTIFICATION_SETTINGS">
+                <!-- This extra highlights the "Allow notification dots" field in Notification settings -->
+                <extra
+                    android:name=":settings:fragment_args_key"
+                    android:value="notification_badging" />
+            </intent>
+        </com.android.launcher3.settings.NotificationDotsPreference>
 
-    <SwitchPreference
-        android:key="pref_allowRotation"
-        android:title="@string/allow_rotation_title"
-        android:summary="@string/allow_rotation_desc"
-        android:defaultValue="@bool/allow_rotation"
-        android:persistent="true" />
+    </PreferenceScreen>
 
-    <SwitchPreference
-        android:key="pref_grid_options"
-        android:title="Enable grid options"
-        android:defaultValue="false"
-        android:persistent="true" />
+    <PreferenceScreen
+        android:key="home_screen"
+        android:icon="@drawable/ic_settings_homescreen"
+        android:title="@string/home_category_title"
+        android:summary="@string/home_category_summary">
+
+        <SwitchPreference
+            android:key="pref_add_icon_to_home"
+            android:title="@string/auto_add_shortcuts_label"
+            android:summary="@string/auto_add_shortcuts_description"
+            android:defaultValue="true"
+            android:persistent="true" />
+
+        <SwitchPreference
+            android:key="pref_grid_options"
+            android:title="Enable grid options"
+            android:defaultValue="false"
+            android:persistent="true" />
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="app_drawer"
+        android:icon="@drawable/ic_settings_appdrawer"
+        android:title="@string/app_drawer_category_title"
+        android:summary="@string/app_drawer_category_summary">
+
+    </PreferenceScreen>
+
+    <PreferenceScreen
+        android:key="miscellaneous"
+        android:icon="@drawable/ic_settings_misc"
+        android:title="@string/misc_category_title"
+        android:summary="@string/misc_category_summary">
+
+        <SwitchPreference
+            android:key="pref_allowRotation"
+            android:title="@string/allow_rotation_title"
+            android:summary="@string/allow_rotation_desc"
+            android:defaultValue="@bool/allow_rotation"
+            android:persistent="true" />
+
+    </PreferenceScreen>
 
 </androidx.preference.PreferenceScreen>

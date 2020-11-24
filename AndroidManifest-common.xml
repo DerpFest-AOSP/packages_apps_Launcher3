@@ -166,7 +166,7 @@
         -->
         <activity
             android:name="com.android.launcher3.settings.SettingsActivity"
-            android:label="@string/settings_button_text"
+            android:label="@string/settings_title"
             android:theme="@style/HomeSettingsTheme"
             android:parentActivityName="com.android.launcher3.Launcher"
             android:autoRemoveFromRecents="true">
