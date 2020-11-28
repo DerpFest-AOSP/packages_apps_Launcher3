@@ -24,7 +24,9 @@ import static com.android.launcher3.util.SecureSettingsObserver.newNotificationS
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.Fragment;
+import android.content.Context;
 import android.content.ComponentName;
+import android.content.pm.PackageManager;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -69,6 +71,8 @@ public class SettingsActivity extends Activity
     private static final String NOTIFICATION_DOTS_PREFERENCE_KEY = "pref_icon_badging";
     /** Hidden field Settings.Secure.ENABLED_NOTIFICATION_LISTENERS */
     private static final String NOTIFICATION_ENABLED_LISTENERS = "enabled_notification_listeners";
+    private static final String SUGGESTIONS_KEY = "pref_suggestions";
+    protected static final String DPS_PACKAGE = "com.google.android.as";
 
     public static final String EXTRA_FRAGMENT_ARG_KEY = ":settings:fragment_args_key";
     public static final String EXTRA_SHOW_FRAGMENT_ARGS = ":settings:show_fragment_args";
@@ -223,6 +227,10 @@ public class SettingsActivity extends Activity
                         }
                     });
                     return true;
+
+                case SUGGESTIONS_KEY:
+                    // Show if Device Personalization Services is present.
+                    return isDPSEnabled(getContext());
             }
             return true;
         }
@@ -237,6 +245,14 @@ public class SettingsActivity extends Activity
                     getView().postDelayed(highlighter, DELAY_HIGHLIGHT_DURATION_MILLIS);
                     mPreferenceHighlighted = true;
                 }
+            }
+        }
+
+        public static boolean isDPSEnabled(Context context) {
+            try {
+                return context.getPackageManager().getApplicationInfo(DPS_PACKAGE, 0).enabled;
+            } catch (PackageManager.NameNotFoundException e) {
+                return false;
             }
         }
 
