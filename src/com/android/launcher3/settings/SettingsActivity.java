@@ -43,7 +43,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.internal.util.bootleggers.BootlegUtils;
+import com.android.internal.util.derp.derpUtils;
 
 import com.android.launcher3.customization.IconDatabase;
 import com.android.launcher3.LauncherAppState;
@@ -264,7 +264,7 @@ public class SettingsActivity extends Activity
                 case Utilities.KEY_ALL_APPS_BLUR:
                 case Utilities.KEY_ALLOW_OVERVIEW_BLUR:
                 case Utilities.KEY_OVERVIEW_BLUR:
-                    return BootlegUtils.supportsBlur();
+                    return derpUtils.supportsBlur();
 
                 case KEY_ENABLE_MINUS_ONE:
                     mShowGoogleAppPref = preference;

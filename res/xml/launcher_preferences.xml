@@ -197,11 +197,10 @@
             <Preference
                 android:key="about_shishu"
                 android:title="@string/about_shishu_title"
-                android:summary="@string/about_shishu_summary"
                 android:persistent="false" >
                 <intent
                     android:action="android.intent.action.VIEW"
-                    android:data="https://github.com/BootleggersROM/packages_apps_Launcher3" />
+                    android:data="https://github.com/DerpFest-11/packages_apps_Launcher3" />
             </Preference>
 
             <Preference
@@ -211,7 +210,7 @@
                 android:persistent="false">
                 <intent
                     android:action="android.intent.action.VIEW"
-                    android:data="https://android.googlesource.com/platform/packages/apps/Launcher3/" />
+                    android:data="https://github.com/Bootleggers-BrokenLab/packages_apps_Launcher3" />
             </Preference>
 
             <Preference
@@ -231,6 +230,13 @@
             <PreferenceCategory 
                 android:key="about_thanks_category"
                 android:title="@string/about_thanks_cat" >
+
+                <Preference
+                    android:key="about_credit01"
+                    android:title="Bootleggers ROM"
+                    android:persistent="false"
+                    android:selectable="false">
+                </Preference>
 
                 <Preference
                     android:key="about_credit01"
