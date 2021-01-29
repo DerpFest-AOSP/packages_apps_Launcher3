@@ -124,6 +124,8 @@ public class SettingsActivity extends Activity
         switch (key) {
             case Utilities.DESKTOP_SHOW_QUICKSPACE:
             case Utilities.KEY_SHOW_ALT_QUICKSPACE:
+            case Utilities.KEY_SHOW_QUICKSPACE_NOWPLAYING:
+            case Utilities.KEY_SHOW_QUICKSPACE_PSONALITY:
             case Utilities.ICON_SIZE:
                 LauncherAppState.getInstanceNoCreate().setNeedsRestart();
                 break;
@@ -288,17 +290,6 @@ public class SettingsActivity extends Activity
                 case KEY_ENABLE_MINUS_ONE:
                     mShowGoogleAppPref = preference;
                     updateIsGoogleAppEnabled();
-                    return true;
-
-                case Utilities.KEY_SHOW_QUICKSPACE_NOWPLAYING:
-                    SwitchPreference quickspaceNowPlaying =
-                        (SwitchPreference) findPreference(Utilities.KEY_SHOW_QUICKSPACE_NOWPLAYING);
-                    quickspaceNowPlaying.setOnPreferenceChangeListener(new OnPreferenceChangeListener() {
-                        public boolean onPreferenceChange(Preference preference, Object newValue) {
-                            LauncherAppState.getInstanceNoCreate().setNeedsRestart();
-                            return true;
-                        }
-                    });
                     return true;
 
                 case KEY_ICON_PACK:
