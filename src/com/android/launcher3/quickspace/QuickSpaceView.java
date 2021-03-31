@@ -180,7 +180,7 @@ public class QuickSpaceView extends FrameLayout implements AnimatorUpdateListene
     }
 
     private void setTypeface(TextView... views) {
-        Typeface tf = Typeface.createFromAsset(getContext().getAssets(), "fonts/GoogleSans-Regular.ttf");
+        Typeface tf = Typeface.create("sans-serif", Typeface.NORMAL);
         for (TextView view : views) {
             if (view != null) {
                 view.setTypeface(tf);
