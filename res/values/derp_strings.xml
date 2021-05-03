@@ -23,13 +23,14 @@
     <string name="app_name" translatable="false">Derp Launcher</string>
 
     <!-- About info -->
-    <string name="about_shishu_title" translatable="false">@string/app_name</string>
+    <string name="about_derp_title" translatable="false">@string/app_name</string>
     <string name="about_based_on_title">Based on Shishu 家 Launcher</string>
     <string name="about_based_on_summary">by Bootleggers ROM</string>
+    <string name="about_base_cat">Base</string>
     <string name="about_thanks_cat">Special thanks</string>
     <string name="about">About</string>
     <string name="about_summary">Info about the launcher</string>
-    <string name="about_app_version">Version</string>
+    <string name="about_app_version">Version 1.0</string>
 
     <!-- General -->
     <string name="settings_title">Settings</string>
