@@ -30,6 +30,38 @@
         </intent>
     </com.android.launcher3.settings.NotificationDotsPreference>
 
+    <PreferenceScreen
+        android:icon="@drawable/ic_apps"
+        android:key="bruh1"
+        android:summary="Preference with a switch"
+        android:title="Switcharoo">
+
+        <SwitchPreference
+            android:defaultValue="true"
+            android:key="lol"
+            android:summary="Just a switch, does nothing"
+            android:title="Switch" />
+
+        </PreferenceScreen>
+
+
+    <PreferenceScreen
+        android:icon="@drawable/ic_apps"
+        android:key="bruh2"
+        android:summary="Preference with a listpref"
+        android:title="ListPref">
+
+            <ListPreference
+                android:defaultValue="a"
+                android:entries="@array/test_names"
+                android:entryValues="@array/test_names"
+                android:key="test2"
+                android:persistent="true"
+                android:summary="%s"
+                android:title="ListPref" />
+
+        </PreferenceScreen>
+
     <SwitchPreference
         android:key="pref_add_icon_to_home"
         android:title="@string/auto_add_shortcuts_label"
