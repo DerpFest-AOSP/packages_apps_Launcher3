@@ -136,6 +136,10 @@
     <string name="quickspace_psa_title">Show a random message</string>
     <string name="quickspace_psa_summary">Show some nice messages sometimes on At a Glance.</string>
 
+    <!-- Wallpaper zoom -->
+    <string name="enable_wallpaper_zoom_title">Enable wallpaper zooming</string>
+    <string name="enable_wallpaper_zoom_summary">Zoom in or out the wallpaper when using drawer or recent apps</string>
+
     <string-array name="quickspace_psa_morning">
         <item>Good morning!</item>
         <item>Good morning, gamer!</item>

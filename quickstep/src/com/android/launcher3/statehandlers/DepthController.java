@@ -145,7 +145,8 @@ public class DepthController implements StateHandler<LauncherState>,
                     // To handle the case where window token is invalid during last setDepth call.
                     IBinder windowToken = mLauncher.getRootView().getWindowToken();
                     if (windowToken != null) {
-                        mWallpaperManager.setWallpaperZoomOut(windowToken, mDepth);
+                        mWallpaperManager.setWallpaperZoomOut(windowToken,
+                            Utilities.canZoomWallpaper(mLauncher) ? mDepth : 1);
                     }
                 }
 
@@ -238,12 +239,16 @@ public class DepthController implements StateHandler<LauncherState>,
         ensureDependencies();
         IBinder windowToken = mLauncher.getRootView().getWindowToken();
         if (windowToken != null) {
-            mWallpaperManager.setWallpaperZoomOut(windowToken, mDepth);
+            mWallpaperManager.setWallpaperZoomOut(windowToken,
+                Utilities.canZoomWallpaper(mLauncher) ? mDepth : 1);
         }
 
         if (supportsBlur) {
             final int blur;
-            if (Utilities.isBlurOnOverviewEnabled(mLauncher) &&
+            if (mLauncher.isInState(LauncherState.NORMAL)) {
+                // there's no reason to blur on home whether we can zoom wallpaper or not
+                blur = 0;
+            } else if (Utilities.isBlurOnOverviewEnabled(mLauncher) &&
                     (mLauncher.isInState(LauncherState.OVERVIEW) ||
                     mLauncher.isInState(LauncherState.QUICK_SWITCH))) {
                 blur = (int) (mDepth * Utilities.getOverviewScrimBlur(mLauncher));

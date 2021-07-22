@@ -141,6 +141,7 @@ public final class Utilities {
     public static final String KEY_ALL_APPS_BLUR = "pref_all_apps_scrim_blur";
     public static final String KEY_ALLOW_OVERVIEW_BLUR = "pref_allow_overview_blur";
     public static final String KEY_OVERVIEW_BLUR = "pref_overview_scrim_blur";
+    public static final String KEY_ALLOW_WALLPAPER_ZOOM = "pref_allow_wallpaper_zoom";
     public static final String DESKTOP_SHOW_QUICKSPACE = "pref_show_quickspace";
     public static final String KEY_SHOW_QUICKSPACE_PSONALITY = "pref_quickspace_psonality";
     public static final String ICON_SIZE = "pref_icon_size";
@@ -772,6 +773,11 @@ public final class Utilities {
     public static int getOverviewScrimBlur(Context context) {
         SharedPreferences prefs = getPrefs(context.getApplicationContext());
         return prefs.getInt(KEY_OVERVIEW_BLUR, 150);
+    }
+
+    public static boolean canZoomWallpaper(Context context) {
+        SharedPreferences prefs = getPrefs(context.getApplicationContext());
+        return prefs.getBoolean(KEY_ALLOW_WALLPAPER_ZOOM, true);
     }
 
     public static boolean showQuickspace(Context context) {
