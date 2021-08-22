@@ -245,7 +245,8 @@ public class DepthController implements StateHandler<LauncherState>,
 
         if (supportsBlur) {
             final int blur;
-            if (mLauncher.isInState(LauncherState.NORMAL)) {
+            if (mLauncher.isInState(LauncherState.NORMAL) && mLauncher.getStateManager()
+                    .getCurrentStableState() == LauncherState.NORMAL) {
                 // there's no reason to blur on home whether we can zoom wallpaper or not
                 blur = 0;
             } else if (Utilities.isBlurOnOverviewEnabled(mLauncher) &&
