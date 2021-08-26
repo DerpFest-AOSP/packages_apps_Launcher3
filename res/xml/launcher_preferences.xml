@@ -198,6 +198,13 @@
         android:summary="@string/misc_category_summary">
 
         <SwitchPreference
+            android:defaultValue="true"
+            android:key="pref_recents_show_memory"
+            android:persistent="true"
+            android:summary="@string/pref_recents_show_memory_summary"
+            android:title="@string/pref_recents_show_memory_title"/>
+
+        <SwitchPreference
             android:key="pref_allowRotation"
             android:title="@string/allow_rotation_title"
             android:summary="@string/allow_rotation_desc"
